@@ -1,6 +1,6 @@
 # Skills Plugin & Marketplace
 
-A comprehensive plugin and marketplace for Claude Code containing 23 custom skills across engineering, iOS/Swift development, product management, design, content, trading, database, QA, educational, and AI architecture domains.
+A comprehensive plugin and marketplace for Claude Code containing 24 custom skills across engineering, Apple development, product management, design, content, trading, database, QA, educational, and AI architecture domains.
 
 ## Overview
 
@@ -10,7 +10,7 @@ This repository provides Claude Code with specialized knowledge and workflows th
 
 ## Skills Index
 
-Quick navigation to all 23 skills organized by category:
+Quick navigation to all 24 skills organized by category:
 
 ### AI & Architecture (2 skills)
 - [anthropic-architect](#anthropic-architect) - Determine the best Anthropic architecture for your project
@@ -23,9 +23,10 @@ Quick navigation to all 23 skills organized by category:
 - [engineer-expertise-extractor](#engineer-expertise-extractor) - Extract engineering expertise from GitHub
 - [engineer-skill-creator](#engineer-skill-creator) - Transform expertise into actionable skills
 
-### iOS & Swift Development (2 skills)
+### Apple Development (3 skills)
 - [swift-concurrency](#swift-concurrency) - Build, audit, and refactor Swift 6+ concurrency code
 - [swiftui-animation](#swiftui-animation) - Advanced SwiftUI animations and Metal shaders
+- [releasing-macos-apps](#releasing-macos-apps) - Create notarized macOS releases with Sparkle updates
 
 ### Product Management (1 skill)
 - [prd-generator](#prd-generator) - Generate Product Requirements Documents
@@ -485,7 +486,7 @@ their standards"
 
 ---
 
-### iOS & Swift Development Skills
+### Apple Development Skills
 
 #### swift-concurrency
 
@@ -605,6 +606,61 @@ DetailView()
 - Polished, Apple-quality interactions
 
 [View swiftui-animation skill →](./skills/swiftui-animation)
+
+---
+
+#### releasing-macos-apps
+
+**Create notarized macOS app releases with Sparkle auto-updates, DMG installers, and GitHub releases.** Complete workflow for code signing, notarization, and distribution of macOS applications.
+
+**Key features:**
+- Step-by-step release checklist
+- Code signing with Developer ID certificates
+- Apple notarization (app-specific password & API key methods)
+- Sparkle framework integration for auto-updates
+- DMG creation with Applications folder symlink
+- GitHub release asset management
+- EdDSA signature generation for Sparkle
+
+**Usage:**
+- "Release my macOS app with notarization"
+- "Create a DMG with Applications folder"
+- "Set up Sparkle auto-updates"
+- "Generate Sparkle signature for my app"
+- "Upload release assets to GitHub"
+
+**Includes:**
+- `SKILL.md` - Complete release workflow with checklist
+- `NOTARIZATION.md` - Apple notarization guide (credentials & API keys)
+- `SPARKLE.md` - Sparkle framework setup and EdDSA signing
+- `TROUBLESHOOTING.md` - Common issues and solutions
+
+**Notarization Methods:**
+- **App-specific password:** Traditional method with Apple ID credentials
+- **API Key:** Modern method using App Store Connect API keys (better for CI/CD)
+
+**Sparkle Key Storage Options:**
+- File in project (gitignored)
+- macOS Keychain
+- Environment variables
+
+**Perfect for:**
+- macOS app developers
+- Independent software vendors
+- Open source macOS projects
+- Apps requiring auto-update functionality
+- GitHub-based distribution workflows
+
+**Use with Claude:**
+```
+"Using releasing-macos-apps, create a notarized release of my app"
+
+"Set up Sparkle auto-updates with EdDSA signing"
+
+"Troubleshoot my notarization failure"
+```
+
+[View releasing-macos-apps skill →](./skills/releasing-macos-apps)
 
 ---
 
@@ -1413,9 +1469,10 @@ Pick only the skills you need for better performance and focused context:
 - `/plugin install reading-teacher@skills-marketplace`
 - `/plugin install leetcode-teacher@skills-marketplace`
 
-**iOS & Swift Development:**
+**Apple Development:**
 - `/plugin install swift-concurrency@skills-marketplace`
 - `/plugin install swiftui-animation@skills-marketplace`
+- `/plugin install releasing-macos-apps@skills-marketplace`
 
 ### Plugin Structure
 
@@ -1425,8 +1482,8 @@ The plugin follows the standard Claude Code plugin architecture:
 skills/
 ├── .claude-plugin/
 │   ├── plugin.json          # Plugin metadata
-│   └── marketplace.json     # Marketplace configuration (24 plugins: 1 bundle + 23 individual)
-├── skills/                   # All skills collection (23 total)
+│   └── marketplace.json     # Marketplace configuration (25 plugins: 1 bundle + 24 individual)
+├── skills/                   # All skills collection (24 total)
 │   ├── anthropic-architect/
 │   ├── anthropic-prompt-engineer/
 │   ├── openai-prompt-engineer/
@@ -1436,6 +1493,7 @@ skills/
 │   ├── engineer-skill-creator/
 │   ├── swift-concurrency/
 │   ├── swiftui-animation/
+│   ├── releasing-macos-apps/
 │   ├── prd-generator/
 │   ├── technical-launch-planner/
 │   ├── design-brief-generator/
@@ -1457,9 +1515,9 @@ skills/
 ### How It Works
 
 **Marketplace Configuration:**
-- The `marketplace.json` exposes 24 installable options
-- 1 "all-skills" bundle with `strict: false` (intelligent routing across all 23 skills)
-- 23 individual skills with `strict: true` (explicit activation when installed)
+- The `marketplace.json` exposes 25 installable options
+- 1 "all-skills" bundle with `strict: false` (intelligent routing across all 24 skills)
+- 24 individual skills with `strict: true` (explicit activation when installed)
 
 **Installation Flexibility:**
 - Install the bundle for comprehensive coverage with smart skill selection
@@ -1519,7 +1577,14 @@ Built for use with [Claude Code](https://claude.ai/code) by Anthropic.
 
 ## Version
 
-**Current Version:** 2.1.0
+**Current Version:** 2.2.0
+
+**What's New in 2.2.0:**
+- 📦 releasing-macos-apps - Complete macOS release workflow with notarization
+- 🍎 Renamed category to "Apple Development" (3 skills)
+- 🔑 API Key authentication for notarization (App Store Connect)
+- 🔐 Multiple Sparkle key storage options
+- 🎯 25 installable options (1 bundle + 24 individual skills)
 
 **What's New in 2.1.0:**
 - 🍎 New iOS & Swift Development category with 2 skills
