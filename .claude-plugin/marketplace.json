@@ -38,8 +38,16 @@
         "./skills/technical-launch-planner",
         "./skills/trading-plan-generator",
         "./skills/hex-vision-scope",
-        "./skills/hex-use-case"
+        "./skills/hex-use-case",
+        "./skills/hex-srs"
       ]
+    },
+    {
+      "name": "hex-srs",
+      "description": "Generate high-quality Software Requirements Specifications (SRS) based on Karl Wiegers' standards to provide precise definitions for development and testing.",
+      "source": "./",
+      "strict": true,
+      "skills": ["./skills/hex-srs"]
     },
     {
       "name": "hex-use-case",
