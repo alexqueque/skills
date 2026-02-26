@@ -40,4 +40,5 @@ Wiegers 建议按“系统特性 (System Features)”而不是按用例来组织
 
 ## 技能资源
 - `srs_template.md`：标准化 SRS 模板。
-- `Hex-SRS-example.md`：餐饮系统的规格说明书范例。
+- `SRS-example.md`：餐饮系统的规格说明书范例（Karl Wiegers 标准）。
+- `Hex-SRS-example.md`：范例备份。
