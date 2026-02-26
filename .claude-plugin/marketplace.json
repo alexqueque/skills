@@ -36,8 +36,16 @@
         "./skills/swift-concurrency",
         "./skills/swiftui-animation",
         "./skills/technical-launch-planner",
-        "./skills/trading-plan-generator"
+        "./skills/trading-plan-generator",
+        "./skills/hex-vision-scope"
       ]
+    },
+    {
+      "name": "hex-vision-scope",
+      "description": "Generate comprehensive Vision and Scope documents to define business requirements, project scope, and stakeholder priorities at the start of a project.",
+      "source": "./",
+      "strict": true,
+      "skills": ["./skills/hex-vision-scope"]
     },
     {
       "name": "anthropic-architect",
