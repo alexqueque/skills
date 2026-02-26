@@ -1,157 +1,90 @@
 #!/bin/bash
 
-# Vision and Scope Document Generator Script
-# Interactive workflow for generating Vision and Scope Documents
-
+# Hex Vision Scope Generator (Expert Mode)
 set -e
 
-# Colors for output
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 YELLOW='\033[1;33m'
 RED='\033[0;31m'
-NC='\033[0m' # No Color
+NC='\033[0m'
 
 echo -e "${BLUE}╔════════════════════════════════════════╗${NC}"
-echo -e "${BLUE}║  Hex Vision Scope - Interactive Mode   ║${NC}"
+echo -e "${BLUE}║    Hex Vision Scope - Expert Generator ║${NC}"
 echo -e "${BLUE}╚════════════════════════════════════════╝${NC}"
-echo ""
 
-# Get script directory
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SKILL_DIR="$(dirname "$SCRIPT_DIR")"
-
-# Check if template exists
-TEMPLATE_FILE="$SKILL_DIR/references/vision_scope_template.md"
-if [ ! -f "$TEMPLATE_FILE" ]; then
-    echo -e "${RED}✗ Error: Vision Scope template not found at $TEMPLATE_FILE${NC}"
-    exit 1
-fi
-
-# Function to prompt for input
 prompt_input() {
     local prompt="$1"
     local var_name="$2"
-    local required="$3"
-
-    while true; do
-        echo -e "${YELLOW}${prompt}${NC}"
-        read -r input
-
-        if [ -n "$input" ]; then
-            eval "$var_name='$input'"
-            break
-        elif [ "$required" != "true" ]; then
-            eval "$var_name=''"
-            break
-        else
-            echo -e "${RED}This field is required. Please provide a value.${NC}"
-        fi
-    done
+    echo -e "${YELLOW}${prompt}${NC}"
+    read -r input
+    eval "$var_name=\"$input\""
 }
 
-# Step 1: Basic Information
-echo -e "${GREEN}Step 1: Basic Information${NC}"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo ""
+# 1. Basic Info
+prompt_input "项目名称 (Project Name):" PROJECT_NAME
+OUTPUT_FILE="vision_scope_${PROJECT_NAME// /_}.md"
 
-prompt_input "Project Name:" PROJECT_NAME true
-prompt_input "Output Filename (default: vision_scope_${PROJECT_NAME// /_}.md):" OUTPUT_FILE false
+# 2. Business Objectives (Deep Dive)
+echo -e "${GREEN}>> 业务目标探讨 (Business Objectives)${NC}"
+prompt_input "导致此项目的核心问题是什么？" BACKGROUND
+prompt_input "如果项目成功，你最想看到哪个指标发生变化？(如: 降低成本20%)" BO_GOAL
+prompt_input "目前的基准值是多少？" BO_PAST
 
-if [ -z "$OUTPUT_FILE" ]; then
-    OUTPUT_FILE="vision_scope_${PROJECT_NAME// /_}.md"
-    OUTPUT_FILE=$(echo "$OUTPUT_FILE" | tr '[:upper:]' '[:lower:]')
-fi
+# 3. Vision Statement (Structure)
+echo -e "${GREEN}>> 愿景陈述 (Vision Statement)${NC}"
+prompt_input "目标用户是谁？" V_FOR
+prompt_input "解决了什么痛点？" V_WHO
+prompt_input "相对于现有方案的最大优势是什么？" V_UNLIKE
 
-# Step 2: Business Requirements
-echo ""
-echo -e "${GREEN}Step 2: Business Requirements${NC}"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo ""
+# 4. Project Priorities
+echo -e "${GREEN}>> 项目优先级 (Project Priorities)${NC}"
+echo "请指定最重要的驱动因素 (Driver) (1:进度, 2:成本, 3:功能, 4:质量):"
+read -r PRIORITY_CHOICE
 
-prompt_input "Current Situation/Background:" BACKGROUND true
-prompt_input "Business Opportunity:" OPPORTUNITY true
-prompt_input "Key Business Objective (BO-1):" BO1 true
-prompt_input "Vision Statement (For [users] who [need]...):" VISION true
+case $PRIORITY_CHOICE in
+    1) DRIVER="Schedule";;
+    2) DRIVER="Cost";;
+    3) DRIVER="Features";;
+    4) DRIVER="Quality";;
+    *) DRIVER="Features";;
+esac
 
-# Step 3: Scope
-echo ""
-echo -e "${GREEN}Step 3: Scope and Features${NC}"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo ""
-
-prompt_input "Major Feature 1 (FE-1):" FE1 true
-prompt_input "Limitations and Exclusions (LI-1):" LIMITATIONS false
-
-# Generate Document
-echo ""
-echo -e "${BLUE}Generating Vision and Scope Document...${NC}"
-
+# Generate
 cat > "$OUTPUT_FILE" << EOF
 # Vision and Scope Document: $PROJECT_NAME
 
-**Date:** $(date +%Y-%m-%d)
-**Author:** $(whoami)
-
----
-
 ## 1. Business Requirements
-
 ### 1.1 Background
 $BACKGROUND
 
-### 1.2 Business Opportunity
-$OPPORTUNITY
-
 ### 1.3 Business Objectives
-- **BO-1**: $BO1
-
-### 1.4 Success Metrics
-- **SM-1**: [Placeholder Metric]
+- **BO-1**: 实现 $BO_GOAL
+  - **Past**: $BO_PAST
+  - **Goal**: $BO_GOAL
 
 ### 1.5 Vision Statement
-$VISION
-
-### 1.6 Business Risks
-- **RI-1**: [Placeholder Risk]
-
-### 1.7 Business Assumptions and Dependencies
-- **AS-1**: [Placeholder Assumption]
+For $V_FOR
+Who $V_WHO
+The $PROJECT_NAME is a product
+That solves $V_WHO
+Unlike $V_UNLIKE
+Our product provides a superior experience.
 
 ## 2. Scope and Limitations
-
 ### 2.1 Major Features
-- **FE-1**: $FE1
-
-### 2.2 Scope of Initial and Subsequent Releases
-| Feature | Release 1 | Release 2 | Release 3 |
-|---------|-----------|-----------|-----------|
-| FE-1    | Core Impl | Optimized | Fully Impl|
-
-### 2.3 Limitations and Exclusions
-- **LI-1**: $LIMITATIONS
+- [ ] FE-1: [待定义核心功能]
 
 ## 3. Business Context
-
-### 3.1 Stakeholder Profiles
-| Stakeholder | Major Value | Attitudes | Major Interests | Constraints |
-|-------------|-------------|-----------|-----------------|-------------|
-| [Role]      | [Value]     | Receptive | Efficiency      | None        |
-
 ### 3.2 Project Priorities
 | Dimension | Constraint | Driver | Degree of Freedom |
 |-----------|------------|--------|-------------------|
-| Features  |            | X      |                   |
-| Quality   | X          |        |                   |
+| Features  |            | $( [ "$DRIVER" == "Features" ] && echo "X" ) | |
+| Quality   |            | $( [ "$DRIVER" == "Quality" ] && echo "X" ) | |
+| Schedule  |            | $( [ "$DRIVER" == "Schedule" ] && echo "X" ) | |
+| Cost      |            | $( [ "$DRIVER" == "Cost" ] && echo "X" ) | |
+| Staff     |            | | |
 
-### 3.3 Deployment Considerations
-[Placeholder Deployment Info]
 EOF
 
-echo -e "${GREEN}✓ Document generated successfully!${NC}"
-echo -e "Output file: ${BLUE}$OUTPUT_FILE${NC}"
-echo ""
-chmod +x "$SCRIPT_DIR/validate_vision_scope.sh" 2>/dev/null || true
-echo -e "${YELLOW}Next steps:${NC}"
-echo "  1. Open $OUTPUT_FILE and fill in the placeholders."
-echo "  2. Run validation: skills/hex-vision-scope/scripts/validate_vision_scope.sh $OUTPUT_FILE"
+echo -e "${GREEN}✓ 专家级文档初稿已生成: $OUTPUT_FILE${NC}"

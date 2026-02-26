@@ -3,74 +3,70 @@
 ## 1. Business Requirements
 
 ### 1.1 Background
-[Describe the current situation, problems, or context that led to the project.]
+[描述导致该项目决策的现状、历史或上下文。]
 
 ### 1.2 Business Opportunity
-[Explain the market or internal opportunity this project addresses. What is the value proposition?]
+[描述存在的商业机会或待解决的问题。说明产品在市场中的吸引力或在公司内部的价值。]
 
 ### 1.3 Business Objectives
-[List specific, measurable business goals. Use Planguage if appropriate.]
-- **BO-1**: [Objective description]
-  - **Scale**: [How to measure]
-  - **Meter**: [Source of data]
-  - **Past**: [Baseline]
-  - **Goal**: [Target]
-- **BO-2**: [Objective description]
+[以可衡量的方式列出业务收益。]
+- **BO-1**: [描述]
+  - **Scale**: [衡量指标，如：处理一个订单的平均时间]
+  - **Meter**: [测量方法，如：检查系统日志]
+  - **Past**: [当前基准值]
+  - **Goal**: [目标值]
+  - **Stretch**: [挑战目标值]
 
 ### 1.4 Success Metrics
-[Define key performance indicators that signify project success.]
-- **SM-1**: [Metric description and target]
-- **SM-2**: [Metric description and target]
+[定义表明项目成功的关键指标。]
+- **SM-1**: [指标描述，例如：发布后 6 个月内 75% 的员工使用该系统]
 
 ### 1.5 Vision Statement
-[A concise summary of the project's purpose, target users, and key differentiators.]
-*For [target users] who want to [problem to solve], the [product name] is a [product category] that [key benefit]. Unlike [competitors or current process], our product [unique value].*
+For [target users]
+Who [statement of the need or opportunity]
+The [product name]
+Is a [product category]
+That [key benefit, compelling reason to buy or use]
+Unlike [primary competitive alternative, current process]
+Our product [statement of primary differentiation]
 
 ### 1.6 Business Risks
-[Identify potential risks to the business success of the project.]
-- **RI-1**: [Risk description] (Probability = [0.0-1.0]; Impact = [1-10])
+- **RI-1**: [描述] (概率: [0.0-1.0], 影响: [1-10])
 
 ### 1.7 Business Assumptions and Dependencies
-[List things you assume to be true or external factors the project depends on.]
-- **AS-1**: [Assumption]
-- **DE-1**: [Dependency]
+- **AS-1**: [假设]
+- **DE-1**: [对外部因素的依赖]
 
 ## 2. Scope and Limitations
 
 ### 2.1 Major Features
-[High-level list of features included in the product.]
-- **FE-1**: [Feature name and brief description]
+- **FE-1**: [功能名称及描述]
 
 ### 2.2 Scope of Initial and Subsequent Releases
-[Define what features go into which release.]
-
 | Feature | Release 1 | Release 2 | Release 3 |
 |---------|-----------|-----------|-----------|
-| [FE-1]  | [Description] | [Description] | [Description] |
+| [FE-1]  | [子集描述] | [增强描述] | [完全实现] |
 
 ### 2.3 Limitations and Exclusions
-[Explicitly state what is NOT included or any constraints.]
-- **LI-1**: [Limitation]
+- **LI-1**: [明确不包含的功能或受限的情况]
 
 ## 3. Business Context
 
 ### 3.1 Stakeholder Profiles
-[Identify and analyze key stakeholders.]
-
 | Stakeholder | Major Value | Attitudes | Major Interests | Constraints |
 |-------------|-------------|-----------|-----------------|-------------|
-| [Name/Role] | [Benefit] | [Feelings] | [Key Focus] | [Limitations] |
+| [利益相关者] | [主要价值] | [态度/偏好] | [核心关注点] | [约束条件] |
 
 ### 3.2 Project Priorities
-[Define priorities across dimensions: Features, Quality, Schedule, Cost, Staff.]
+[定义项目的五个维度：Constraint(约束), Driver(驱动因素), Degree of Freedom(自由度)]
 
 | Dimension | Constraint | Driver | Degree of Freedom |
 |-----------|------------|--------|-------------------|
-| Features  |            |        |                   |
-| Quality   |            |        |                   |
-| Schedule  |            |        |                   |
-| Cost      |            |        |                   |
-| Staff     |            |        |                   |
+| **Features** | [ ] | [ ] | [ ] |
+| **Quality**  | [ ] | [ ] | [ ] |
+| **Schedule** | [ ] | [ ] | [ ] |
+| **Cost**     | [ ] | [ ] | [ ] |
+| **Staff**    | [ ] | [ ] | [ ] |
 
-### 3.3 Deployment Considerations
-[Describe technical or logistical requirements for rollout.]
+### 3.3 Operating Environment / Deployment Considerations
+[描述用户所在的环境、地理分布、技术基础设施要求等。]

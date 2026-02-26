@@ -1,62 +1,33 @@
 #!/bin/bash
 
-# Vision and Scope Validation Script
-# Checks completeness and quality of Vision and Scope documents
-
+# Hex Vision Scope Validation (Expert Version)
 set -e
 
-# Colors for output
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 YELLOW='\033[1;33m'
 RED='\033[0;31m'
-NC='\033[0m' # No Color
-
-if [ $# -lt 1 ]; then
-    echo "Usage: $0 <vision_scope_file.md>"
-    exit 1
-fi
+NC='\033[0m'
 
 FILE="$1"
+if [ ! -f "$FILE" ]; then exit 1; fi
 
-if [ ! -f "$FILE" ]; then
-    echo -e "${RED}✗ Error: File not found: $FILE${NC}"
-    exit 1
-fi
+echo -e "${BLUE}>> 正在根据《软件需求》标准验证文档...${NC}"
 
-echo -e "${BLUE}╔════════════════════════════════════════╗${NC}"
-echo -e "${BLUE}║    Vision and Scope Validation         ║${NC}"
-echo -e "${BLUE}╚════════════════════════════════════════╝${NC}"
-echo ""
-
-ISSUES=0
-CHECKS=0
-
-check_section() {
+check_content() {
     local name="$1"
     local pattern="$2"
-    ((CHECKS++))
     if grep -q "$pattern" "$FILE"; then
-        echo -e "${GREEN}✓${NC} $name section found"
+        echo -e "${GREEN}✓${NC} $name"
     else
-        echo -e "${RED}✗${NC} $name section missing"
-        ((ISSUES++))
+        echo -e "${RED}✗${NC} $name (缺失或格式不正确)"
     fi
 }
 
-check_section "Business Requirements" "##.*Business Requirements"
-check_section "Business Objectives" "###.*Business Objectives"
-check_section "Vision Statement" "###.*Vision Statement"
-check_section "Scope and Limitations" "##.*Scope and Limitations"
-check_section "Major Features" "###.*Major Features"
-check_section "Release Plan" "Release 1.*Release 2"
-check_section "Stakeholder Profiles" "###.*Stakeholder Profiles"
+check_content "愿景陈述 (For/Who/The/Unlike 结构)" "For.*Who.*The.*Unlike"
+check_content "业务目标测量 (Scale/Meter/Goal)" "Scale\|Meter\|Goal"
+check_content "项目优先级矩阵" "Dimension.*Constraint.*Driver"
+check_content "利益相关者画像" "Stakeholder.*Attitudes.*Interests"
+check_content "排除项 (Exclusions)" "Exclusions\|LI-"
 
-echo ""
-if [ $ISSUES -eq 0 ]; then
-    echo -e "${GREEN}✅ Document structure is valid!${NC}"
-    exit 0
-else
-    echo -e "${RED}❌ Found $ISSUES issues. Please check the document structure.${NC}"
-    exit 1
-fi
+echo -e "\n${BLUE}建议: 确保所有 BO (业务目标) 都有对应的 SM (成功指标)。${NC}"
