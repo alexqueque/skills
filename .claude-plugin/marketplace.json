@@ -37,8 +37,16 @@
         "./skills/swiftui-animation",
         "./skills/technical-launch-planner",
         "./skills/trading-plan-generator",
-        "./skills/hex-vision-scope"
+        "./skills/hex-vision-scope",
+        "./skills/hex-use-case"
       ]
+    },
+    {
+      "name": "hex-use-case",
+      "description": "Generate high-quality Use Cases based on Karl Wiegers' standards to detail user-system interactions and ensure functional accuracy.",
+      "source": "./",
+      "strict": true,
+      "skills": ["./skills/hex-use-case"]
     },
     {
       "name": "hex-vision-scope",
