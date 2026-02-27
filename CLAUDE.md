@@ -1,11 +1,11 @@
 # CLAUDE.md
 
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 ## 首要原则
 - Always respond in Chinese-simplified.
 - 每次修改后将修改的内容记录在log/xxx_log.md,xxx为主题名称；
 - 每次沟通的内容记录在log/xxx_discussion.md,xxx为主题名称；
-
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
 
