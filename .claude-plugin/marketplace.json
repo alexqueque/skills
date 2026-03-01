@@ -1,8 +1,8 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "skills-marketplace",
-  "version": "2.1.0",
-  "description": "A comprehensive collection of 23 custom skills for Claude Code covering engineering, iOS/Swift development, product management, design, content, trading, database, QA, educational, and AI prompt engineering domains. Install individual skills or the complete collection.",
+  "version": "2.1.1",
+  "description": "A comprehensive collection of 24 custom skills for Claude Code covering engineering, iOS/Swift development, product management, design, content, trading, database, QA, educational, and AI prompt engineering domains. Install individual skills or the complete collection.",
   "owner": {
     "name": "James Rochabrun",
     "email": "jamesrochabrun@gmail.com"
@@ -10,7 +10,7 @@
   "plugins": [
     {
       "name": "all-skills",
-      "description": "Complete collection of all 23 skills including engineering, iOS/Swift, product, design, content, finance, database, QA, educational, and AI prompt engineering skills",
+      "description": "Complete collection of all 24 skills including engineering, iOS/Swift, product, design, content, finance, database, QA, educational, and AI prompt engineering skills",
       "source": "./",
       "strict": true,
       "skills": [
@@ -39,8 +39,16 @@
         "./skills/trading-plan-generator",
         "./skills/hex-vision-scope",
         "./skills/hex-use-case",
-        "./skills/hex-srs"
+        "./skills/hex-srs",
+        "./skills/hex-business-rules"
       ]
+    },
+    {
+      "name": "hex-business-rules",
+      "description": "Extract and categorize high-quality Business Rules based on Karl Wiegers' standards to define and constrain business processes precisely.",
+      "source": "./",
+      "strict": true,
+      "skills": ["./skills/hex-business-rules"]
     },
     {
       "name": "hex-srs",
