@@ -1,8 +1,8 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "skills-marketplace",
-  "version": "2.1.1",
-  "description": "A comprehensive collection of 24 custom skills for Claude Code covering engineering, iOS/Swift development, product management, design, content, trading, database, QA, educational, and AI prompt engineering domains. Install individual skills or the complete collection.",
+  "version": "2.1.2",
+  "description": "A comprehensive collection of 28 custom skills for Claude Code covering engineering, BOSC SRS, iOS/Swift development, product management, design, content, trading, database, QA, educational, and AI prompt engineering domains. Install individual skills or the complete collection.",
   "owner": {
     "name": "James Rochabrun",
     "email": "jamesrochabrun@gmail.com"
@@ -10,7 +10,7 @@
   "plugins": [
     {
       "name": "all-skills",
-      "description": "Complete collection of all 24 skills including engineering, iOS/Swift, product, design, content, finance, database, QA, educational, and AI prompt engineering skills",
+      "description": "Complete collection of all 28 skills including engineering, BOSC SRS, iOS/Swift, product, design, content, finance, database, QA, educational, and AI prompt engineering skills",
       "source": "./",
       "strict": true,
       "skills": [
@@ -40,8 +40,16 @@
         "./skills/hex-vision-scope",
         "./skills/hex-use-case",
         "./skills/hex-srs",
-        "./skills/hex-business-rules"
+        "./skills/hex-business-rules",
+        "./skills/hex-bosc-srs"
       ]
+    },
+    {
+      "name": "hex-bosc-srs",
+      "description": "Generate high-quality Business Requirement Documents (SRS) for Bank of Shanghai (BOSC) V4.8 standards, covering functional and cross-impact analysis.",
+      "source": "./",
+      "strict": true,
+      "skills": ["./skills/hex-bosc-srs"]
     },
     {
       "name": "hex-business-rules",
