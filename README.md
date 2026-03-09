@@ -1,6 +1,6 @@
 # Skills Plugin & Marketplace
 
-A comprehensive plugin and marketplace for Claude Code containing 24 custom skills across engineering, Apple development, product management, design, content, trading, database, QA, educational, and AI architecture domains.
+A comprehensive plugin and marketplace for Claude Code containing 29 custom skills across engineering, BOSC requirements, Apple development, product management, design, content, trading, database, QA, educational, and AI architecture domains.
 
 ## Overview
 
@@ -10,7 +10,15 @@ This repository provides Claude Code with specialized knowledge and workflows th
 
 ## Skills Index
 
-Quick navigation to all 24 skills organized by category:
+Quick navigation to all 29 skills organized by category:
+
+### BOSC & Requirements Engineering (6 skills)
+- [hex-bosc-prd](#hex-bosc-prd) - Generate high-quality PRD for BOSC V4.8
+- [hex-bosc-srs](#hex-bosc-srs) - Generate high-quality SRS for BOSC V4.8
+- [hex-business-rules](#hex-business-rules) - Extract and categorize high-quality Business Rules
+- [hex-srs](#hex-srs) - Generate high-quality SRS (Karl Wiegers' standards)
+- [hex-use-case](#hex-use-case) - Generate high-quality Use Cases
+- [hex-vision-scope](#hex-vision-scope) - Generate comprehensive Vision and Scope documents
 
 ### AI & Architecture (2 skills)
 - [anthropic-architect](#anthropic-architect) - Determine the best Anthropic architecture for your project
@@ -61,6 +69,80 @@ Quick navigation to all 24 skills organized by category:
 ---
 
 ## Skills
+
+### BOSC & Requirements Engineering Skills
+
+#### hex-bosc-prd
+
+**Generate high-quality Product Requirements Documents (PRD) for Bank of Shanghai (BOSC) V4.8 standards.** Specifically designed for BOSC business analysts to ensure rigorous business logic, detailed control flows, and comprehensive data element definitions.
+
+**Key features:**
+- Support for BOSC Business Functional Requirement Template V4.8
+- Automated generation of functional flowcharts (Mermaid)
+- Precise control logic tables for business rules
+- Detailed input/output data element tables
+- Backend data processing requirements (security, encryption, de-identification)
+
+**Usage:**
+- "Create a BOSC PRD for a new loan calculation feature"
+- "Generate requirement details following BOSC V4.8 template"
+- "Define data elements for the transaction query function"
+
+[View hex-bosc-prd skill →](./skills/hex-bosc-prd)
+
+---
+
+#### hex-bosc-srs
+
+**Generate high-quality Business Requirement Documents (SRS) for Bank of Shanghai (BOSC) V4.8 standards.** Covers functional requirements and comprehensive cross-impact analysis.
+
+**Key features:**
+- BOSC V4.8 SRS template support
+- Cross-system impact analysis
+- Detailed functional requirement specifications
+- Compliance with banking industry standards
+
+[View hex-bosc-srs skill →](./skills/hex-bosc-srs)
+
+---
+
+#### hex-business-rules
+
+**Extract and categorize high-quality Business Rules based on Karl Wiegers' standards.** Define and constrain business processes precisely by identifying facts, constraints, action triggers, and computations.
+
+**Key features:**
+- Identification of facts and constraints
+- Action trigger definition
+- Computation logic specification
+- Rule categorization and traceability
+
+[View hex-business-rules skill →](./skills/hex-business-rules)
+
+---
+
+#### hex-srs
+
+**Generate high-quality Software Requirements Specifications (SRS) based on Karl Wiegers' standards.** Provides precise definitions for development and testing teams to minimize ambiguity and ensure functional correctness.
+
+[View hex-srs skill →](./skills/hex-srs)
+
+---
+
+#### hex-use-case
+
+**Generate high-quality Use Cases based on Karl Wiegers' standards.** Detail user-system interactions through main paths, alternative flows, and exception scenarios to ensure functional accuracy.
+
+[View hex-use-case skill →](./skills/hex-use-case)
+
+---
+
+#### hex-vision-scope
+
+**Generate comprehensive Vision and Scope documents.** Define business requirements, project scope, and stakeholder priorities at the start of a project to ensure strategic alignment.
+
+[View hex-vision-scope skill →](./skills/hex-vision-scope)
+
+---
 
 ### AI & Architecture Skills
 
